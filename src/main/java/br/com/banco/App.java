@@ -1,4 +1,7 @@
+
+
 package br.com.banco;
+import br.com.banco.model.Cliente;
 
 import java.util.Scanner;
 
@@ -21,8 +24,23 @@ public class App {
 
             switch (opcao) {
                 case 1:
-                    System.out.println("\n>>> Funcionalidade 'Criar cliente' em desenvolvimento...");
-                    break;
+    System.out.println("\n>>> Criar novo cliente");
+    System.out.print("Nome: ");
+    String nome = scanner.nextLine();
+    System.out.print("CPF (apenas números): ");
+    String cpf = scanner.nextLine();
+    System.out.print("Telefone: ");
+    String telefone = scanner.nextLine();
+
+    Cliente novoCliente = new Cliente(nome, cpf, telefone);
+
+    if (novoCliente.isCpfValido()) {
+        System.out.println("\nCliente criado com sucesso!");
+        System.out.println(novoCliente);
+    } else {
+        System.out.println("\nErro: CPF inválido! Deve ter exatamente 11 dígitos numéricos.");
+    }
+    break;
                 case 2:
                     System.out.println("\n>>> Funcionalidade 'Criar conta' em desenvolvimento...");
                     break;
@@ -38,3 +56,4 @@ public class App {
         scanner.close();
     }
 }
+
